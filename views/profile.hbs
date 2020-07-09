@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+    <link rel="stylesheet" href="/css/style-min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!--font icon-->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="bg_shadow"></div>
+            <div class="sidebar__inner">
+                <div class="close">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="profile_info">
+                    <div class="profile_img">
+
+                    </div>
+                    <div class="profile_data">
+
+                    </div>
+                </div>
+
+                <ul class="links">
+                    <li id="userBtn" class="update">Update Profile</li>
+                    <li id="taskBtn">Tasks</li>
+                </ul>
+                <p id="logout" style="text-align: center; cursor: pointer;">Logout</p>
+
+                <footer>
+                    <p>&copy; 2020 <b style="color: wheat;">Ugwu Samson
+                            Ekene</b></p>
+                    <ul class="social">
+                        <li><a href="https://github.com/Sammy-White"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://web.facebook.com/ugwu.samson.37"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/SammyWhite882"><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.instagram.com/sammy_wite"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+        <div class="main_container">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <div class="hamburger__inner">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                <div class="menu">
+                    <h4 style="color: blue;"><b>{{title}}</b></h4>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="user_section">
+                    <h3 style="color: blue;">Profile Details</h3>
+                    <div class="users-form">
+
+                    </div>
+                    <div class="image_upload_section">
+                        <form>
+                            <input type="file" id="myFile" name="filename"><br><br>
+                            <p style="font-size: x-small; color: red"><b>* Image must be jpeg, jpg or png format and must not be
+                                    greater than 1mb file size.</b> </p>
+                            <button type="button" id="submit-upload" class="btn btn-success">Submit</button>
+                            <button type="button" id="delete-upload" class="btn btn-danger">Delete</button><br><br>
+                            <button type="button" id="delete-profile" class="btn btn-danger">Delete Account</button>
+                        </form>
+                    </div>
+                    <script>
+                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+                        (function () {
+                            'use strict';
+                            window.addEventListener('load', function () {
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.getElementsByClassName('needs-validation');
+                                // Loop over them and prevent submission
+                                var validation = Array.prototype.filter.call(forms, function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    </script>
+
+                </div>
+
+
+                <div class="task_section">
+                    <perfect-scrollbar class="ps-show-limits">
+                        <div style="position: static;" class="ps ps--active-y">
+                            <div class="ps-content">
+                            <h3 style="color: blue;">Tasks</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody class="table-body">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </perfect-scrollbar>
+
+                    <div style="position:fixed;bottom:0;right:0;"><svg data-toggle="modal" data-target="#myModal"
+                            class="bi bi-plus-circle-fill" width="3em" height="3em" viewBox="0 0 16 16" fill="blue"
+                            cursor="pointer" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z" />
+                        </svg></div>
+
+                    <!-- Modal for Editing task -->
+                    <div class="modal fade" id="exampleModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content for Editing task-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Edit Task</h4>
+                                </div>
+                                <div class="modal-body description">
+                                    <input type="text" id="editForm" autocomplete="off" required>
+                                    <span class='errorMessage'></span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                    <button id="editBtn" class="btn btn-success" data-dismiss="modal">Edit Task</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Modal for creating task -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content for creating task-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Create New Task</h4>
+                            </div>
+                            <div class="modal-body description">
+                                <input type="text" id="title" autocomplete="off" required>
+                                <span class='errorMessage'></span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                <button id="add-btn" class="btn btn-success" data-dismiss="modal">Add Task</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <script src="../js/jquery-3.3.1.min.js"></script>
+            <script src="../js/bootstrap.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".hamburger .fas").click(function () {
+                        $(".wrapper").addClass("active")
+                    })
+
+                    $(".wrapper .sidebar .close").click(function () {
+                        $(".wrapper").removeClass("active")
+                    })
+                })
+            </script>
+            <script src="../js/jquery.cookie.js"></script>
+            <script src="../js/user.js"></script>
+            <script src="../js/task.js"></script>
+            <script src="../js/main.js"></script>
+            
+</body>
+</html>

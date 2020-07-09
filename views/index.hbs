@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up page</title>
+    <link rel="stylesheet" href="/css/style-min.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+</head>
+
+<body>
+    <div class="main-w3layouts wrapper">
+        <div class="login-page">
+            <div class="form">
+                <h3 style="padding-bottom: 20px;">{{title}}</h3>
+                <form class="login-form" id="sign_up"> <input id="name" type="text" placeholder="username"
+                        autocomplete="off" required /> <span class="zmdi zmdi-account field-icon-right"></span> <input
+                        id="email" type="email" placeholder="email address" autocomplete="off" required /> <span
+                        class='errorMessage'></span> <span class="zmdi zmdi-email field-icon-right"></span> <input
+                        id="password" type="password" placeholder="password" autocomplete="off" required /> <span
+                        class='errorMessage'></span> <span class="zmdi zmdi-lock field-icon-right"></span> <span
+                        toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span> <span>
+                        <p style="color: red; font-size: xx-small;">* Password must not be less than 7 characters</p>
+                    </span><br> <button>Sign Up</button>
+                    <p class="message">Already registered? <a href="/login">Sign In</a></p>
+                </form>
+            </div>
+        </div>
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
